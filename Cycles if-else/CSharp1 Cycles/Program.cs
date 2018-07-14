@@ -19,6 +19,9 @@ namespace CSharp1_Cycles
 
         }
 
+        /// <summary>
+        /// Точка перезапуска приложения.
+        /// </summary>
         static void StartUp()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -26,16 +29,17 @@ namespace CSharp1_Cycles
             Console.WriteLine();
             Menu();
         }
-       public static void Pause() {
-            Console.Read();            
+        public static void Pause() {
+            Console.Read();
         }
-     
-        
+
+
         /// <summary>
-        /// Метод MenuJump считывает введеное пользователем значение и вызывает метод Case.
+        /// Метод MenuJump считывает введеное пользователем значение и вызывает цикл Case, 
+        /// для определения типа задачи.
         /// Обрабатывает исключения в следствии неверного ввода пользователя.
         /// </summary>
-        static void MenuJump()
+        static void MenuJump0()
         {
             Console.WriteLine("Press 4 to back in Menu");
             try
@@ -45,19 +49,19 @@ namespace CSharp1_Cycles
                     switch (key)
                     {
                         case 1:
-                            Console.WriteLine("Твоя мамка будет работать с текстом!");
+                            Console.WriteLine("Your mom be going to work with the text");
                             break;
                         case 2:
-                            Console.WriteLine("Твоя мамка будет работать с numbers!");
+                            Console.WriteLine("Your mom be going to work with the numbers!");
                             break;
                         case 3:
-                            Console.WriteLine("Твоя мамка будет работать с @#!!*/@ ");
+                            Console.WriteLine("Oh @#!k! That was my bad, bro, but there's nothing here yet ");
                             break;
-                        case 4:                            
+                        case 4:
                             Menu();
                             break;
                     }
-                else { Console.WriteLine("Shit, there's no such section!"); MenuJump(); }
+                else { Console.WriteLine("Shit, there's no such section!"); MenuJump0(); }
             }
             catch (Exception e)
             {
@@ -67,6 +71,18 @@ namespace CSharp1_Cycles
                 StartUp();
             }
 
+        }
+        static void MenuJump1()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Text: What do you want to do?");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Enter the number:");
+            Console.WriteLine("1 – Reverse text");
+            Console.WriteLine("2 – Encrypt");
+            Console.WriteLine("3 – Decrypt");
+            MenuJump1();
         }
         static void Menu()
         {
@@ -78,11 +94,11 @@ namespace CSharp1_Cycles
             Console.WriteLine("1 – Work with text");            
             Console.WriteLine("2 – Work with numbers");
             Console.WriteLine("3 – Other");
-            MenuJump();
+            MenuJump0();
         }
         static void Main(string[] args)
         {
-            string tit = "HomeWork";
+            string tit = "ThyWickedMom";
             Console.Title = tit;            
             StartUp();
         }
